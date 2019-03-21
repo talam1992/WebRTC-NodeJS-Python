@@ -1,11 +1,10 @@
 # webrtcapp-Dockerfile
 
-''' docker build ./
-'''
+<docker build ./>
 
-'''
+
 docker run -it webrtcapp
-'''
+
 
 '''
 docker container run --detach webrtcapp
