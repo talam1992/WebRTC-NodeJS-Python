@@ -3,6 +3,14 @@
 https://hub.docker.com/r/tal1992/webrtcapp
 
 ```
+docker push 
+```
+
+```
+docker pull
+```
+
+```
 docker build ./
 ```
 ```
