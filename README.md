@@ -1,7 +1,6 @@
 # webrtcapp-Dockerfile
 
-'''
-docker build ./
+''' docker build ./
 '''
 
 '''
