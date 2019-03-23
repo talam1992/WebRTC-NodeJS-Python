@@ -3,11 +3,11 @@
 https://hub.docker.com/r/tal1992/webrtcapp
 
 ```
-docker push 
+docker push <image>
 ```
 
 ```
-docker pull
+docker pull <image>
 ```
 
 ```
