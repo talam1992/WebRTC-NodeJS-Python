@@ -20,5 +20,8 @@ docker run -it webrtcapp
 docker container run --detach webrtcapp
 ```
 ```
-docker save -o /home/"username"/Desktop
+docker save -o <location>
+```
+```
+docker load -i <location>
 ```
