@@ -1,4 +1,6 @@
-# webrtcapp-Dockerfile
+# WebRTC Dockerfile: nodejs-python
+
+## @Author: Timothy Lam
 
 https://hub.docker.com/r/tal1992/webrtcapp
 
