@@ -22,10 +22,10 @@ docker run -it webrtc
 docker container run --detach webrtc
 ```
 ```
-docker save -o <location>
+docker save <image>:<tag> > <image>.<file extension>
 ```
 ```
-docker load -i <location>
+docker load <image>.<file extension>
 ```
 ```
 docker run -it webrtc bash
