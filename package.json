@@ -1,0 +1,9 @@
+{
+  "name": "webrtc-project",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "ejs": "2.x",
+    "express": "4.x"
+  }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>WebRTC Dissertation Project - Basic Connection</title>
+	</head>
+	<body>
+
+		<video autoplay></video>
+		
+		<script>
+			navigator.getUserMedia = navigator.getUserMedia || 
+navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+			var constraints = {
+				audio: false, 
+				video: true
+			};
+			
+			navigator.getUserMedia(constraints, onSuccess, onError);
+
+			var videoBox = document.querySelector('video')
+			
+			function onSuccess(stream) {
+				console.log("Success! We have a stream!");
+				videoBox.srcObject = stream;
+				videoBox.play();
+			}
+			
+			function onError(error) {
+				console.log("Error with getUserMedia: ", error);
+			}
+		</script>
+	</body>
+</html>
+
