@@ -13,26 +13,15 @@ docker pull <image>
 ```
 
 ```
-docker build ./
+docker build .
 ```
 ```
-docker run -it webrtc
+docker run -d -p <port>:<port> webrtc:latest
 ```
-```
-docker container run --detach webrtc
-```
+
 ```
 docker save <image>:<tag> > <image>.<file extension>
 ```
 ```
 docker load <image>.<file extension>
-```
-```
-docker run -it webrtc bash
-```
-```
-npm -v
-```
-```
-node -v
 ```
