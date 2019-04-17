@@ -2,7 +2,7 @@
 
 ## @Author: Timothy Lam
 
-https://cloud.docker.com/u/tal1992/repository/docker/tal1992/webrtc
+https://hub.docker.com/r/tal1992/webrtc
 
 ```
 docker push <image>
