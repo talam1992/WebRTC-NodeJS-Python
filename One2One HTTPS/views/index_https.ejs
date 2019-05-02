@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebRTC HTTPS Docker</title>
+	
+    <link href='https://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+		<script src="/socket.io/socket.io.js"></script>
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="javascript:void(0)">Patient-Doctor Assistant</a>
+        </div>
+        <div class="nav navbar-nav menu-right">
+            <a class="navbar-brand" href="javascript:void(0)">&copy;</a>
+        </div>
+
+      </div>
+    </nav>
+    <div id="lndngPg" class="mstHd lndngpg">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2 ">
+            <div class="starter-text">
+              <h1><strong>WebRTC Dissertation Project</strong></h1>
+              <p class="lead"><strong>Digital Health Application</strong></p>
+            </div>
+            <div class="startrcall2actn">
+              <a href="" id="loginAsPatient" class="callgrp"> Login as Patient</a>
+              <a href="" id="loginAsDr" class="callgrp">Login as Doctor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+    <div id="patntEtry" class="mstHd" style="display: none;">
+      <div class="login2app">
+        <h2>Welcome to Patient-Doctor Assistant!</h2>
+        
+        <div id="requstDrFrm">
+		  <p>We will connect you with a Doctor after you<br>tell us some basic information…</p>
+		  
+		  <form class="form-inline">
+            <div class="form-group">
+              <input id="patientNme" class="inptstyld" type="text" class="form-control" id="" value="Your Name">
+              <button id="requstDr" class="inptstyld" type="button">Request a Doctor</button>
+            </div>
+          </form>
+		</div>
+		
+        <div id="waitingForDr" class="ldngwrp" style="display: none;">
+          <span>Waiting for a Doctor to arrive.....</span>
+          <div class="progress">
+            <div id="waitingForDrProgress" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              <span class="sr-only"></span>
+            </div>
+          </div>
+        </div>
+		
+        <div id="drLsting" class="drinfo" style="display: none;">
+          <div class="drimg">
+            <img src="images/doctor.jpg">
+          </div>
+          <div class="drtxt">
+            <span class="name">The Doctor will see you now!</span>
+            <span class="specialty"></span>
+            <button id="callDr" class="inptstyld" type="button">Call the Doctor.</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+	
+    <div id="drSignup" class="mstHd" style="display: none;">
+      <div class="login2app logindr">
+        <h2>What’s is the matter Doctor?</h2>
+        <p>There are probably patients waiting to talk with you.<br><small>Just enter your name and press the button to wait for a call!</small></p>
+        
+		<div id="drSignupFrm">
+          <form class="form-inline">
+            <div class="form-group">
+              <input class="inptstyld" type="text" class="form-control" id="drName" value="Your Name">
+              <input class="inptstyld" type="text" class="form-control" id="drSpecialty" value="Your Specialty">
+              <button id="drSignupBtn" class="inptstyld" type="button">Wait for Patient</button>
+            </div>
+          </form>
+		</div>
+		
+        <div id="waitngPatnt" class="ldngwrp" style="display: none;">
+          <span>Waiting for patients to contact you...</span>
+          <div class="progress">
+            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              <span class="sr-only"></span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div id="vidPg" class="mstHd" style="display: none;">
+      <div class="vidpghldr vidpghldrhori">
+        <div class="left">
+          <div class="vidwrp">
+            <div class="mainvid">
+              <video id="mainVidTg" class="" autoplay></video>
+            </div>
+            <div class="smallvid">
+              <video id="smallVidTg" autoplay></video>
+            </div>
+          </div>
+          
+          <div class="actinshldr">
+            <a id="muteMyself" class="inptstyld" href="javascript:void(0)">Mute Myself</a>
+            <a id="pauseMyVid" class="inptstyld" href="javascript:void(0)">Pause Video</a>
+            <a class="inptstyld" href="https://192.168.1.66:5000">End Call</a>
+          </div>
+        </div>        
+        <div class="right">
+          <div class="msghldr">
+            <h4>Online User</h4>
+            <div id="msgInNme" class="msgin"></div>
+			      <div id="msgOutNme" class="msgout"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	
+	<script src="js/mywebrtc.js"></script>
+	<script src="js/myapp.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "webrtc-docker",
+  "version": "0.0.1",
+  "description": "https",
+  "private": true,
+  "dependencies": {
+    "ejs": "2.x",
+    "express": "3.x",
+    "express.io":"^1.1.13",
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "coffee-script": "1.12.7"
+  },
+  "author": "Timothy"
+}
