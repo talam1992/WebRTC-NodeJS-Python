@@ -1,0 +1,244 @@
+html,
+body{
+  font-family: 'Raleway', sans-serif;
+}
+.inptstyld{
+  display: inline-block;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  padding: 0 20px;
+  height: 50px;
+}
+
+.navbar{
+  background: rgba(255, 255, 255, 0.30);
+  border: none;
+}
+.navbar-brand{
+  height: 60px;
+  padding: 20px;
+  color: #000000;
+}
+.navbarbrand:hover{
+  color: #000000;
+}
+
+.menu-right{
+  float: right;
+}
+
+.mstHd{
+  min-height: 635px;
+  padding: 60px 0 40px;
+  background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); ;
+  background-size: cover;
+  background-position: center top;  
+  color: #000000;
+  text-align: center;
+}
+.mstHd.lndngpg{
+  padding-top: 200px;  
+  min-height: 635px;
+}
+.startrcall2actn{
+  margin: 10px auto 0;
+  text-align: center;
+}
+.startrcall2actn .callgrp{
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.4);
+  line-height: 60px;
+  padding: 0 30px;
+  color: #000000;
+  margin: 0 10px;  
+  text-decoration: none;
+}
+.startrcall2actn .callgrp:hover{
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.login2app{
+  display: inline-block;
+  width: auto;
+  min-width: 550px;
+  min-height:340px;
+  margin: 60px auto;
+  padding:0 20px 80px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.login2app h2{
+  line-height: 80px;
+  margin: 0 -20px 40px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.login2app p{
+  font-size: 20px;
+  padding: 10px 20px;
+}
+.login2app form{
+  display: inline-block;
+}
+.login2app form input[type="text"],
+.login2app form button{
+  margin: 5px 2px 0;
+  width: 240px;
+  vertical-align: bottom;
+  color: #000000;
+}
+.login2app form button{
+  width: auto;
+  line-height: 50px;
+  background: #8EB63B;
+}
+.login2app form button:hover{
+  background: #739a23;
+}
+.logindr form input[type="text"],
+.logindr form button{
+  width: 200px;
+}
+
+.ldngwrp{
+  display: inline-block;
+  padding: 10px 40px 15px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.ldngwrp .progress{
+  margin: 10px auto 0;
+}
+
+.drinfo{
+  display: inline-block;
+}
+.drinfo .drimg,
+.drinfo .drtxt{
+  display: inline-block;
+  margin: 0 3px 0;
+  vertical-align: bottom;
+}
+.drinfo .drimg img{
+  height: 135px;
+}
+.drinfo .drtxt{
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  height: 135px;
+}
+.drinfo .drtxt button{
+  background: #8EB63B;
+  height: 35px;
+  line-height: 1;
+  width: 140px;
+  margin-top: 10px;
+}
+.drinfo .drtxt button:hover{
+  background: #739a23;
+}
+.drinfo .drtxt span{
+  display: block;
+  text-align: left;
+}
+.drinfo .drtxt span.name{
+  font-size: 18px;
+}
+.drinfo .drtxt span.specialty{
+  font-size: 14px;
+  color: #000000;
+}
+
+.vidpghldr{
+  background: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  margin-top: 50px;
+}
+.vidpghldr .vidwrp{
+  width: 550px;
+  height: 380px;
+  position: relative;
+}
+.vidwrp video{
+  width: 100%;
+  height: 100%;
+}
+.vidpghldr .vidwrp .mainvid,
+.vidpghldr .vidwrp .smallvid {
+  position: absolute;
+  background: #181818;
+}
+.vidpghldr .vidwrp .mainvid {
+  background: #000000;
+}
+
+.vidpghldr .vidwrp .mainvid{
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;  
+}
+.vidpghldr .vidwrp .smallvid{
+  bottom:0;
+  right: 0;
+  width: 180px;
+  height: 120px;
+  border-left: 1px solid #888;
+  border-top: 1px solid #888;
+}
+.vidpghldr .actinshldr{
+  padding: 10px;
+}
+.vidpghldr .actinshldr a{
+  line-height: 50px;
+  color: #fff;
+  margin: 0 5px;
+  background: rgba(0, 0, 0, 0.5);
+  width: 160px;
+}
+
+.msghldr{
+  display: inline-block;
+  width: 508px;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  height: 320px;
+  overflow-x: scroll;
+}
+.msghldr .msgin,
+.msghlr .msgout{
+  display: block;
+  text-align: left;
+} 
+.msghldr .msgin span,
+.msghldr .msgout span{
+  display: inline-block;
+  padding: 6px 8px;
+  margin: 4px 0;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+  line-height: 14px;
+}
+.msghldr .msgin span a,
+.msghldr .msgout span a{
+  color:#A5F008;
+}
+.msghldr .msgout{
+  text-align: right;
+}
+
+.vidpghldrhori .left,
+.vidpghldrhori .right{
+  float: left;
+}
+.vidpghldrhori .right{
+  width: 250px;
+}
+.vidpghldrhori .right .msghldr{
+  width: 100%;
+  height: 445px;
+}
+.vidpghldrhori .right .msghldr{
+  border: none;
+  background: #2F2D2E;
+}
+

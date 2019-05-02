@@ -1,0 +1,16 @@
+{
+  "name": "webrtc-http",
+  "version": "0.0.1",
+  "description": "docker",
+  "private": true,
+  "main": "server_http.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^3.4.8",
+    "express.io": "^1.1.13"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.12.7"
+  },
+  "author": "Timothy Lam"
+}
