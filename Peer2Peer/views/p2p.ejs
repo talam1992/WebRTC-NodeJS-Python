@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>WebRTC Docker P2P Connection</title>
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+	<body>
+		<video id="myVidTg" autoplay></video>
+		<video id="theirVidTg" autoplay></video>
+		<div>
+			<label>Your Name</label><input id="myNme" type="text"/>
+			<label>Message</label><input id="myMsg" type="text"/>
+			<input id="sendMsg" type="submit"/>
+			<div id="chtAra">Message Output:<br></div>
+			<div id="signalingAra">Signaling Messages:<br></div>
+		</div>
+		
+		<script>
+			var myVidAra = document.querySelector("#myVidTg");
+			var theirVidAra = document.querySelector("#theirVidTg");
+			var myNme = document.querySelector("#myNme");
+			var myMsg = document.querySelector("#myMsg");
+			var sendMsg = document.querySelector("#sendMsg");
+			var chtAra = document.querySelector("#chtAra");
+			var signalingAra = document.querySelector("#signalingAra");
+			var RM = "cht";
+			var SIGNLRM = "signlrm";
+			var config = {
+				'iceServers': [{
+					'url': 'stun:stun.l.google.com:19302'
+				}]
+			};
+			var rtcPrCon;
+	
+			io = io.connect();
+			io.emit('rdy', {"chtrm": RM, "signlrm": SIGNLRM});
+			
+
+			io.emit('signl',{"type":"user_here", "msg":"Are you ready for a call?", "rm":SIGNLRM});
+			
+			io.on('signlngmsg', function(data) {
+				showSignalMsg("Signal received: " + data.type);
+				
+				
+				if (!rtcPrCon)
+					startSignaling();
+					
+				if (data.type != "user_here") {
+					var msg = JSON.parse(data.msg);
+					if (msg.sdp) {
+						rtcPrCon.setRemoteDescription(new RTCSessionDescription(msg.sdp), function () {
+							if (rtcPrCon.remoteDescription.type == 'offer') {
+								rtcPrCon.createAnswer(sendLocalDesc, logError);
+							}
+						}, logError);
+					}
+					else {
+						rtcPrCon.addIceCand(new RTCIceCandidate(msg.cand));
+					}
+				}
+				
+			});
+			
+			function startSignaling() {
+				showSignalMsg("starting signaling...");
+				
+				rtcPrCon = new webkitRTCPeerConnection(config, null);
+								
+				rtcPrCon.onicecand = function (evt) {
+					if (evt.cand)
+						io.emit('signl',{"type":"ice candidate", "msg": JSON.stringify({ 'cand': evt.cand }), "rm":SIGNLRM});
+						showSignalMsg("completed that ice candidate...");
+				};
+				
+				rtcPrCon.onnegotiationneeded = function () {
+					showSignalMsg("on negotiation called");
+					rtcPrCon.createOffer(sendLocalDesc, logError);
+				}
+				
+				rtcPrCon.onaddstream = function (evt) {
+					showSignalMsg("going to add their stream...");
+					theirVidAra.srcObject = evt.stream;
+				};
+				
+				navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+				navigator.getUserMedia({
+					'audio': true,
+					'video': {
+						mandatory: {
+							minWidth: 320,
+							maxWidth: 320,
+							minHeight: 180,
+							maxHeight: 180
+						}
+					}
+				}, function (stream) {
+					showSignalMsg("going to display my stream...");
+					myVidAra.srcObject = stream;
+					rtcPrCon.addStream(stream);
+				}, logError);
+			  
+			}
+			
+			function sendLocalDesc(desc) {
+				rtcPrCon.setLocalDescription(desc, function () {
+					showSignalMsg("sending local description");
+					io.emit('signl',{"type":"SDP", "msg": JSON.stringify({ 'sdp': rtcPrCon.localDescription }), "rm":SIGNLRM});
+				}, logError);
+			}
+			
+			function logError(error) {
+				showSignalMsg(error.name + ': ' + error.msg);
+			}
+			
+			io.on('announce', function(data) {
+				showMsg(data.msg);
+			});
+			
+			io.on('msg', function(data) {
+				showMsg(data.author + ": " + data.msg);
+			});
+			
+			function showMsg(msg) {
+				chtAra.innerHTML = chtAra.innerHTML + "<br/>" + msg;
+			}
+			
+			function showSignalMsg(msg) {
+				signalingAra.innerHTML = signalingAra.innerHTML + "<br/>" + msg;
+			}
+			
+			sendMsg.addEventListener('click', function(ev){
+				io.emit('snd', {"author":myNme.value, "msg":myMsg.value, "rm":RM});
+				ev.preventDefault();
+			}, false);
+		</script>
+	</body>
+</html>
