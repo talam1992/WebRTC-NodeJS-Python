@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>WebRTC Docker - Basic Connection</title>
+	</head>
+	<body>
+
+		<video autoplay></video>
+		
+		<script>
+			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || 
+			navigator.mozGetUserMedia;
+			var constrnts = {
+				audio: true, 
+				video: true
+			};
+
+			navigator.getUserMedia(constrnts, onSucss, onEr);
+
+			var videoBox = document.querySelector('video')
+			
+			function onSucss(stream) {
+				console.log("Success! We have a stream!");
+				videoBox.srcObject = stream;
+				videoBox.play();
+			}
+			
+			function onEr(er) {
+				console.log("Error with getUserMedia: ", er);
+			}
+		</script>
+	</body>
+</html>
+

@@ -6,6 +6,7 @@ RUN apt-get install --yes nodejs
 WORKDIR /app
 COPY . /app
 RUN npm install
-EXPOSE 3000
+EXPOSE 2000
 ENTRYPOINT ["node"]
-CMD ["server.js"]
+CMD ["server_basic.js"]
+
